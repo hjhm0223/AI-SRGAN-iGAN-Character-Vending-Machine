@@ -49,14 +49,15 @@ GUI: pyqt4
 
 1) SR-GAN 도커 다운 (https://hub.docker.com/r/oyj9097/srgan/)
 
-   >> docker pull oyj9097/srgan
+   >> docker pull oyj9097/srgan:01
 
 2) 도커 설정 
 
-   >> nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /home/ktai02/Documents/workspace:/workspace --name srGAN (도커이미지아이디) /bin/bash
+   >> nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /workspace:/workspace --name srGAN (도커이미지아이디) /bin/bash
 
 3) 실행
 
+   >> cd /workspace/srGAN
    >> python main.py --mode=evaluate
 
 
@@ -70,13 +71,17 @@ GUI: pyqt4
 
 2) 도커 설정 
 
->> nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /home/ktai02/Documents/workspace:/workspace --name iGAN (도커이미지아이디) /bin/bash
+    >> nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /workspace:/workspace --name iGAN (도커이미지아이디) /bin/bash
 
 3) xauth host 설정 (xauth list, xauth add ~)
+    
+    >> (새로운 터미널에서) xauth list
+    결과 복사 후
+    >> xauth add 복사한 결과 붙여넣기
 
 4) 모듈 추가
 
-     >> pip install --upgrade --no-deps git+git://github.com/Lasagne/Lasagne.git
+    >> pip install --upgrade --no-deps git+git://github.com/Lasagne/Lasagne.git
 
 5) 환경변수 설정
 
@@ -84,6 +89,7 @@ GUI: pyqt4
 
 6) 실행 
 
+    >> cd /workspace/iGAN
     >> THEANO_FLAGS='device=gpu0, floatX=float32, nvcc.fastmath=True' python iGAN_main.py --model_name charac_64 --win_size 600
 
 7-1) 기능 1(파일 첨부) 실행 후 고해상도 캐릭터 이미지로 변환하여 지정폴더('iGAN-master/super_pics/')에 자동 저장
