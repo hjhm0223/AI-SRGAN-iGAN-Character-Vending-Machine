@@ -1,8 +1,9 @@
 # 캐릭터 자판기
 
 - [소스](https://drive.google.com/open?id=1nhzfn6gmrHa6hmn5JKyG0JgBYWUxpnix)
-- 데이터 [64 x 64 게임 캐릭터 이미지](https://drive.google.com/file/d/1Z-6c61dPqspxCrs7vQ4ZIDIdqGa47i9-/view)
-[128 x 128 게임 캐릭터 이미지](https://drive.google.com/open?id=1a_YG1Ny8qQZOgaVlpkNwu6bg1-MNlxi3)
+- 데이터
+   - [64 x 64 게임 캐릭터 이미지](https://drive.google.com/file/d/1Z-6c61dPqspxCrs7vQ4ZIDIdqGa47i9-/view)
+   - [128 x 128 게임 캐릭터 이미지](https://drive.google.com/open?id=1a_YG1Ny8qQZOgaVlpkNwu6bg1-MNlxi3)
 
 ## 개발환경 및 데모 스펙
 - AI 개발환경
