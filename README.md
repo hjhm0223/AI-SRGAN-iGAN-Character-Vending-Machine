@@ -26,42 +26,42 @@
 ### SR-GAN 실행 후 새로운 terminal에서 iGAN 실행
 
 1. SR-GAN
-1.1 [R-GAN 도커 이미지](https://hub.docker.com/r/oyj9097/srgan/) 다운로드
-   ```
-   $ docker pull oyj9097/srgan:2
-   ```
-1.2 도커 설정 
-   ```
-   $ nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /home/ktai02/Documents/workspace:/workspace --name srGAN {도커이미지아이디} /bin/bash 9bb283c95227
-   ``` 
-1.3 실행
-   ```
-   $ python main.py --mode=evaluate
-   ```
+   1.1 [R-GAN 도커 이미지](https://hub.docker.com/r/oyj9097/srgan/) 다운로드
+      ```
+      $ docker pull oyj9097/srgan:2
+      ```
+   1.2 도커 설정 
+      ```
+      $ nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /home/ktai02/Documents/workspace:/workspace --name srGAN {도커이미지아이디} /bin/bash 9bb283c95227
+      ``` 
+   1.3 실행
+      ```
+      $ python main.py --mode=evaluate
+      ```
 
 
 2. iGAN
-2.1 [iGAN 도커 이미지](https://hub.docker.com/r/ggmmjj1/mini4/) 다운로드
-   ```
-   $ docker pull ggmmjj1/mini4
-   ```
-2.2 도커 설정 
-   ```
-   $ nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /home/ktai02/Documents/workspace:/workspace --name iGAN {도커이미지아이디} /bin/bash
-   ```
-2.3 xauth host 설정 (xauth list, xauth add ~)
-2.4 모듈 추가
-   ```
-   $ pip install --upgrade --no-deps git+git://github.com/Lasagne/Lasagne.git
-   ```
-2.5 환경변수 설정
-   ```
-   $ export QT_X11_NO_MITSHM=1
-   ```
-2.6 실행 
-   ```
-   $ THEANO_FLAGS='device=gpu0, floatX=float32, nvcc.fastmath=True' python iGAN_main.py --model_name charac_64 --win_size 600
-   ```
-2.7 저장
-2.7.1 기능 1(파일 첨부) 실행 후 고해상도 캐릭터 이미지로 변환하여 지정폴더('iGAN-master/super_pics/')에 자동 저장
-2.7.2 기능 2(그림 그리기) 실행 후 save버튼 누르면 고해상도 캐릭터 이미지로 변환하여 선택한 폴더에 자동 저장
+   2.1 [iGAN 도커 이미지](https://hub.docker.com/r/ggmmjj1/mini4/) 다운로드
+      ```
+      $ docker pull ggmmjj1/mini4
+      ```
+   2.2 도커 설정 
+      ```
+      $ nvidia-docker run -it --net=host -e DISPLAY -v /tmp/.X11-unix -p 8888:8888 -v /home/ktai02/Documents/workspace:/workspace --name iGAN {도커이미지아이디} /bin/bash
+      ```
+   2.3 xauth host 설정 (xauth list, xauth add ~)
+   2.4 모듈 추가
+      ```
+      $ pip install --upgrade --no-deps git+git://github.com/Lasagne/Lasagne.git
+      ```
+   2.5 환경변수 설정
+      ```
+      $ export QT_X11_NO_MITSHM=1
+      ```
+   2.6 실행 
+      ```
+      $ THEANO_FLAGS='device=gpu0, floatX=float32, nvcc.fastmath=True' python iGAN_main.py --model_name charac_64 --win_size 600
+      ```
+   2.7 저장
+   2.7.1 기능 1(파일 첨부) 실행 후 고해상도 캐릭터 이미지로 변환하여 지정폴더 `iGAN-master/super_pics/` 에 자동 저장
+   2.7.2 기능 2(그림 그리기) 실행 후 save버튼 누르면 고해상도 캐릭터 이미지로 변환하여 선택한 폴더에 자동 저장
